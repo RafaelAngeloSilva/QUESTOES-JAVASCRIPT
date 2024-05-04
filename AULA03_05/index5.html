@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Variável</title>
+</head>
+<body>
+    <h2>Verificador de Variável</h2>
+    <form id="variavelForm">
+        <label for="variavel">Digite a variável (a ou b):</label>
+        <input type="text" id="variavel" name="variavel" required><br><br>
+        
+        <button type="submit">Verificar</button>
+    </form>
+    
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("variavelForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que o formulário seja enviado
+
+            // Obtém o valor da variável
+            let variavel = document.getElementById("variavel").value;
+
+            // Verifica o valor da variável e exibe a mensagem correspondente
+            let mensagem;
+            if (variavel === "a") {
+                mensagem = "A";
+            } else if (variavel === "b") {
+                mensagem = "B";
+            } else {
+                mensagem = "Outra letra";
+            }
+
+            // Exibe a mensagem na div resultado
+            document.getElementById("resultado").innerText = mensagem;
+        });
+    </script>
+</body>
+</html>

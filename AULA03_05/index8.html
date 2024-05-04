@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Opções</title>
+</head>
+<body>
+    <h2>Menu de Opções</h2>
+    <form id="menuForm">
+        <label for="opcoes">Escolha uma opção:</label>
+        <select id="opcoes" name="opcoes">
+            <option value="1">1. Opção 1</option>
+            <option value="2">2. Opção 2</option>
+            <option value="3">3. Opção 3</option>
+        </select><br><br>
+        
+        <button type="submit">Escolher</button>
+    </form>
+    
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("menuForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que o formulário seja enviado
+
+            // Obtém a opção selecionada pelo usuário
+            let opcaoSelecionada = document.getElementById("opcoes").value;
+
+            // Verifica a opção selecionada e exibe a mensagem correspondente
+            let mensagem;
+            switch (opcaoSelecionada) {
+                case "1":
+                    mensagem = "Opção 1 escolhida";
+                    break;
+                case "2":
+                    mensagem = "Opção 2 escolhida";
+                    break;
+                case "3":
+                    mensagem = "Opção 3 escolhida";
+                    break;
+                default:
+                    mensagem = "Opção inválida";
+            }
+
+            // Exibe a mensagem na div resultado
+            document.getElementById("resultado").innerText = mensagem;
+        });
+    </script>
+</body>
+</html>

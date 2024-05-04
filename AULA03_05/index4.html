@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Média</title>
+</head>
+<body>
+    <h2>Cálculo da Média</h2>
+    <form id="vetorForm">
+        <label for="numeros">Digite os números separados por vírgula:</label>
+        <input type="text" id="numeros" name="numeros" required><br><br>
+        
+        <button type="submit">Calcular Média</button>
+    </form>
+    
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("vetorForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que o formulário seja enviado
+
+            // Obtém os números do campo de entrada e converte para um vetor
+            let numeros = document.getElementById("numeros").value.split(",").map(Number);
+
+            // Calcula a média dos números
+            let soma = 0;
+            for (let i = 0; i < numeros.length; i++) {
+                soma += numeros[i];
+            }
+            let media = soma / numeros.length;
+
+            // Exibe a média na div resultado
+            document.getElementById("resultado").innerText = "A média dos números é: " + media;
+        });
+    </script>
+</body>
+</html>

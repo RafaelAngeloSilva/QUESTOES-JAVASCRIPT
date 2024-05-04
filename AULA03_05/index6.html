@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Soma da Matriz</title>
+</head>
+<body>
+    <h2>Cálculo da Soma da Matriz</h2>
+    <form id="matrizForm">
+        <label for="matriz">Digite os elementos da matriz separados por vírgulas e espaços:</label>
+        <input type="text" id="matriz" name="matriz" required><br><br>
+        
+        <button type="submit">Calcular Soma</button>
+    </form>
+    
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("matrizForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que o formulário seja enviado
+
+            // Obtém os elementos da matriz do campo de entrada e converte para uma matriz
+            let elementos = document.getElementById("matriz").value.split(", ").map(Number);
+
+            // Calcula a soma dos elementos da matriz
+            let soma = 0;
+            for (let i = 0; i < elementos.length; i++) {
+                soma += elementos[i];
+            }
+
+            // Exibe a soma na div resultado
+            document.getElementById("resultado").innerText = "A soma dos elementos da matriz é: " + soma;
+        });
+    </script>
+</body>
+</html>
